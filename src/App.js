@@ -1,10 +1,11 @@
-import { Header } from "./Header";
-import { Navigation } from "./Navigation";
+import { Header } from './Header';
+import { Navigation } from './Navigation';
+import { CardList } from '../CardList';
 
 export class App {
   constructor() {
-    this.header = new Header();
-    this.navigation = new Navigation();
-    console.log(this.navigation);
+    this.headerEl = new Header();
+    this.cardListEl = new CardList();
+    this.navigationEl = new Navigation();
   }
 }

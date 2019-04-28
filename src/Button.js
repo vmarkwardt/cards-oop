@@ -1,7 +1,7 @@
 import { createEl } from './utils';
 
 export class Button {
-  constructor({ classes, target }) {
+  constructor({ classes, target, onClick }) {
     this.innerHTML = '';
     this.el = createEl({
       className: classes,
@@ -9,5 +9,7 @@ export class Button {
       target: target,
       innerHTML: this.innerHTML
     });
+
+    this.el.addEventListener('click', onClick);
   }
 }
