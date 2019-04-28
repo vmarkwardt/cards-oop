@@ -21,7 +21,7 @@ export class Card {
       className: 'card-bookmark',
       type: 'button',
       target: this.el,
-      onClick: (event) => toggleOnClick(event)
+      onClick: (event) => this.toggleOnClick(event)
     });
     this.contentEl = createEl({
       className: 'card-content',

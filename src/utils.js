@@ -7,15 +7,17 @@
  */
 
 export function createEl({
-  className = "",
-  type = "div",
+  className = '',
+  type = 'div',
   target = document.body,
-  position = "beforeend",
-  innerHTML = ""
+  position = 'beforeend',
+  innerHTML = '',
+  onClick
 }) {
   const el = document.createElement(type);
   el.className = className;
   el.innerHTML = innerHTML;
   target.insertAdjacentElement(position, el);
+  el.addEventListener('click', onClick);
   return el;
 }
