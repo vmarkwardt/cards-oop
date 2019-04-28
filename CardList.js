@@ -6,7 +6,7 @@ export class CardList {
   constructor(target) {
     this.cardList = [{ title: 'test', content: 'dies ist ein test' }];
     this.el = createEl({
-      className: 'card-layout',
+      className: 'main__content content-card',
       type: 'section',
       target: target
     });
@@ -22,12 +22,15 @@ export class CardList {
   } */
 
   render() {
-    this.el.innerHTML = this.cardList.map(
-      (card) =>
-        new Card({
-          ...card,
-          target: this.el
-        }).el.innerHTML
-    );
+    this.cardList
+      .map(
+        (card) =>
+          new Card({
+            ...card,
+            target: this.el
+          })
+      )
+      .map((card) => card.el)
+      .forEach((cardEl) => this.el.appendChild(cardEl));
   }
 }

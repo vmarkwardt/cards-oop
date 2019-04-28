@@ -5,7 +5,6 @@ export class Card {
   //
   constructor({ title, content, target }) {
     //
-    console.log(this, 'TITLE $$$$$$$ ' + title);
     this.el = createEl({
       className: 'card-layout',
       type: 'section',
