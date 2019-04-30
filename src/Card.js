@@ -21,7 +21,7 @@ export class Card {
       className: 'card-bookmark',
       type: 'button',
       target: this.el,
-      onClick: (event) => this.toggleOnClick(event)
+      onClick: (event) => this.toggleOnClick(event, this)
     });
     this.contentEl = createEl({
       className: 'card-content',
@@ -31,7 +31,9 @@ export class Card {
     });
   }
 
-  toggleOnClick(event) {
+  toggleOnClick(event, cardObj) {
     event.target.classList.toggle('active');
+
+    //console.log(cardObj); change Bookmark status
   }
 }

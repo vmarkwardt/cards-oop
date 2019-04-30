@@ -1,10 +1,12 @@
-import { createEl } from './src/utils';
-import { Card } from './src/Card';
+import { createEl } from './utils';
+import { Card } from './Card';
 import { timingSafeEqual } from 'crypto';
 
 export class CardList {
   constructor(target) {
-    this.cardList = [{ title: 'test', content: 'dies ist ein test' }];
+    this.cardList = [
+      { title: 'test', content: 'dies ist ein test', isBookmarked: false }
+    ];
     this.el = createEl({
       className: 'main__content content-card',
       type: 'section',
