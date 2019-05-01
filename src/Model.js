@@ -9,7 +9,7 @@ export class Model {
 
   //addCard = (newCard) => {
   addCard(newCard) {
-    this.cardList = [...this.cardList, newCard];
+    this.cardList = [newCard, ...this.cardList];
     addLocalStorage(this.cardList, this.storageName);
   }
 
