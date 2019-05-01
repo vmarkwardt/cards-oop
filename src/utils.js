@@ -21,3 +21,20 @@ export function createEl({
   el.addEventListener('click', onClick);
   return el;
 }
+
+export function getEl(selector, target = document) {
+  return target.querySelector(selector);
+}
+
+export function getAllEl(selector, target = document) {
+  return target.querySelectorAll(selector);
+}
+
+export function getLocalStorage(storageName) {
+  return JSON.parse(localStorage.getItem(this.storageName));
+}
+
+export function addLocalStorage(entry, storageName) {
+  this.entries = [...this.entries, entry];
+  localStorage.setItem(this.storageName, JSON.stringify(this.entries));
+}
