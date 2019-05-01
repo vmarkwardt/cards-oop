@@ -1,28 +1,30 @@
-import { createEl } from './utils';
+import { createEl, getAllEl, getEl } from './utils';
 import { Button } from './Button';
+import { log } from 'util';
 
 export class Navigation {
-  constructor() {
+  constructor(onClick) {
     this.buttonList = [
       {
         name: 'home',
-        classes: 'nav__button fas fa-home active',
-        onClick: (event) => this.navCardOnClick(event)
+        classes: 'nav__button fas fa-home nav__button--page-card-list active',
+        //onClick: (event) => this.navCardOnClick(event)
+        onClick: (event) => onClick(event, 'page-card-list')
       },
       {
         name: 'create',
-        classes: 'nav__button fas fa-folder-plus',
-        onClick: (event) => this.navCreateOnClick(event)
+        classes: 'nav__button fas fa-folder-plus nav__button--page-create',
+        onClick: (event) => onClick(event, 'page-create')
       },
       {
         name: 'profile',
-        classes: 'nav__button fas fa-user-circle',
-        onClick: (event) => this.navProfileOnClick(event)
+        classes: 'nav__button fas fa-user-circle nav__button--page-profile',
+        onClick: (event) => onClick(event, 'page-profile')
       },
       {
         name: 'settings',
-        classes: 'nav__button fas fa-cog',
-        onClick: (event) => this.navSettingsOnClick(event)
+        classes: 'nav__button fas fa-cog nav__button--page-settings',
+        onClick: (event) => onClick(event, 'page-settings')
       }
     ];
 
@@ -45,46 +47,15 @@ export class Navigation {
         new Button({
           classes: button.classes,
           target: this.navEl,
-          //onClick: this.navCardOnClick.bind(this)
-          //onClick: (event) => this.navCardOnClick(event)
           onClick: button.onClick
         })
     );
   }
 
-  navCardOnClick(event) {
-    this.toggleButtons(event);
-    //hideContent();
-    //contentCard.classList.remove('hidden');
-    //heading.innerText = 'Home';
-  }
-
-  navCreateOnClick(event) {
-    this.toggleButtons(event);
-    //hideContent();
-    //contentCard.classList.remove('hidden');
-    //heading.innerText = 'Home';
-  }
-  navProfileOnClick(event) {
-    this.toggleButtons(event);
-    //hideContent();
-    //contentCard.classList.remove('hidden');
-    //heading.innerText = 'Home';
-  }
-  navSettingsOnClick(event) {
-    this.toggleButtons(event);
-    //hideContent();
-    //contentCard.classList.remove('hidden');
-    //heading.innerText = 'Home';
-  }
-  /* 
-  hideContent = () => {
-    contentElements.forEach(section => section.classList.add('hidden'));
-  }; */
-
-  toggleButtons(event) {
-    const buttonElList = document.querySelectorAll('.nav__button');
+  update(activePage) {
+    const buttonElList = getAllEl('.nav__button');
     buttonElList.forEach((navButton) => navButton.classList.remove('active'));
-    event.target.classList.add('active');
+
+    getEl(`.nav__button--${activePage}`, this.el).classList.add('active');
   }
 }

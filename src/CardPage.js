@@ -6,7 +6,7 @@ export class CardPage {
     this.cardList = cardList;
 
     this.el = createEl({
-      className: 'main__content content-card',
+      className: 'main__content page-card-list',
       type: 'section',
       target: target
     });

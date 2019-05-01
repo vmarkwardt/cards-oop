@@ -3,7 +3,7 @@ import { createEl, getEl } from './utils';
 export class CreatePage {
   constructor(target, onSubmit) {
     this.el = createEl({
-      className: 'main__content content-create hidden',
+      className: 'main__content page-create hidden',
       type: 'section',
       target
     });
