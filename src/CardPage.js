@@ -11,20 +11,12 @@ export class CardPage {
       target: target
     });
 
-    this.render();
+    this.render(this.cardList);
   }
 
-  /* get cardList() {
-    return cardList;
-  }
-
-  set cardList(cards) {
-    this.cardList = [...cards];
-  } */
-
-  render() {
+  render(cardList) {
     // console.log('CARDLIST ^^^^^^^', this.cardList);
-    this.cardList
+    cardList
       .map(
         (card) =>
           new Card({
