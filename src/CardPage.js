@@ -23,6 +23,7 @@ export class CardPage {
   } */
 
   render() {
+    // console.log('CARDLIST ^^^^^^^', this.cardList);
     this.cardList
       .map(
         (card) =>

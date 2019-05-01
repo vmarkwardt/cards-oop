@@ -31,10 +31,9 @@ export function getAllEl(selector, target = document) {
 }
 
 export function getLocalStorage(storageName) {
-  return JSON.parse(localStorage.getItem(this.storageName));
+  return JSON.parse(localStorage.getItem(storageName));
 }
 
 export function addLocalStorage(entry, storageName) {
-  this.entries = [...this.entries, entry];
-  localStorage.setItem(this.storageName, JSON.stringify(this.entries));
+  localStorage.setItem(storageName, JSON.stringify(entry));
 }
