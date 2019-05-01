@@ -5,6 +5,7 @@ import { CardPage } from './CardPage';
 import { CreatePage } from './CreatePage';
 import { getEl, getAllEl } from './utils';
 import { log } from 'util';
+import { ProfilePage } from './ProfilePage';
 
 export class App {
   constructor() {
@@ -20,6 +21,7 @@ export class App {
     this.headerEl = new Header(this.el);
     this.cardPageEl = new CardPage(this.el, this.cardList);
     this.createPage = new CreatePage(this.el, this.handleCreateCard.bind(this));
+    this.profilePage = new ProfilePage(this.el);
     this.navigationEl = new Navigation(this.handleNavigation.bind(this));
   }
 

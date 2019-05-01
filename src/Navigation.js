@@ -55,7 +55,6 @@ export class Navigation {
   update(activePage) {
     const buttonElList = getAllEl('.nav__button');
     buttonElList.forEach((navButton) => navButton.classList.remove('active'));
-
     getEl(`.nav__button--${activePage}`, this.el).classList.add('active');
   }
 }
