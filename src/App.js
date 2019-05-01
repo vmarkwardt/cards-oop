@@ -43,7 +43,6 @@ export class App {
     getAllEl('.main__content', this.el).forEach((pageEl) =>
       pageEl.classList.add('hidden')
     );
-    console.log(`app.js .${activePage}`);
     getEl(`.${activePage}`).classList.remove('hidden');
   }
 }

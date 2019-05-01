@@ -32,7 +32,5 @@ export class Card {
 
   toggleOnClick(event, cardObj) {
     event.target.classList.toggle('active');
-
-    //console.log(cardObj); change Bookmark status
   }
 }

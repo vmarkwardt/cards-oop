@@ -15,11 +15,10 @@ export class CardPage {
   }
 
   render(cardList) {
-    console.log('CARDLIST ^^^^^^^', this.cardList);
     cardList
       .map(
         (card) =>
-          new Card({ 
+          new Card({
             card,
             target: this.el
           })
