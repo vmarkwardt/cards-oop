@@ -19,9 +19,7 @@ export class App {
 
     this.headerEl = new Header(this.el);
     this.cardPageEl = new CardPage(this.el, this.cardList);
-    this.createPage = new CreatePage(this.el, (card) =>
-      this.handleCreateCard(card)
-    );
+    this.createPage = new CreatePage(this.el, this.handleCreateCard.bind(this));
     this.navigationEl = new Navigation(this.handleNavigation.bind(this));
   }
 
@@ -41,6 +39,7 @@ export class App {
     getAllEl('.main__content', this.el).forEach((pageEl) =>
       pageEl.classList.add('hidden')
     );
+    console.log(`app.js .${activePage}`);
     getEl(`.${activePage}`).classList.remove('hidden');
   }
 }

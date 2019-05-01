@@ -3,8 +3,7 @@ import { log } from 'util';
 
 export class Card {
   //
-  constructor({ title, content, target }) {
-    //
+  constructor({ card, target }) {
     this.el = createEl({
       className: 'card-layout',
       type: 'section',
@@ -15,10 +14,10 @@ export class Card {
       className: 'card-heading fontweight bordershape',
       type: 'h2',
       target: this.el,
-      innerHTML: title
+      innerHTML: card.title
     });
     this.bookmarkEl = createEl({
-      className: 'card-bookmark',
+      className: `card-bookmark ${card.isBookmarked ? 'active' : ''}`,
       type: 'button',
       target: this.el,
       onClick: (event) => this.toggleOnClick(event, this)
@@ -27,7 +26,7 @@ export class Card {
       className: 'card-content',
       type: 'p',
       target: this.el,
-      innerHTML: content
+      innerHTML: card.content
     });
   }
 

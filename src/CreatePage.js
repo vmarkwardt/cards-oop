@@ -19,6 +19,12 @@ export class CreatePage {
       innerHTML: getEl('.form--template').innerHTML
     });
 
-    this.formEl.addEventListener('submit', onSubmit);
+    this.formEl.addEventListener('submit', () =>
+      onSubmit({
+        title: this.formEl.title.value,
+        content: this.formEl.description.value,
+        isBookmarked: this.formEl['card-bookmark-checkbox'].checked
+      })
+    );
   }
 }
