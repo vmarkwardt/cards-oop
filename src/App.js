@@ -15,7 +15,7 @@ export class App {
     this.cardList = this.model.getAllCards();
 
     // view state
-    this.activePage = 'content-card'; // == home //content-create
+    this.activePage = 'page-card-list'; // == home
 
     this.headerEl = new Header(this.el);
     this.cardPageEl = new CardPage(this.el, this.cardList);
@@ -33,12 +33,14 @@ export class App {
   handleNavigation(event, activePage) {
     this.activePage = activePage; //ex 'page-create'
 
-    //this.showPage(activePage);
+    this.showPage(activePage);
     this.navigationEl.update(activePage);
   }
 
   showPage(activePage) {
-    getAllEl('.main__content', this.el).classList.add('hidden');
+    getAllEl('.main__content', this.el).forEach((pageEl) =>
+      pageEl.classList.add('hidden')
+    );
     getEl(`.${activePage}`).classList.remove('hidden');
   }
 }
