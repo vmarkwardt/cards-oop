@@ -12,9 +12,15 @@ export class App {
 
     this.model = new Model();
     this.cardList = this.model.getAllCards();
+
     this.headerEl = new Header(this.el);
-    this.cardListEl = new CardPage(this.el, this.cardList);
-    this.createPage = new CreatePage();
+    this.cardPageEl = new CardPage(this.el, this.cardList);
+    this.createPage = new CreatePage(this.el, handleCreateCard);
     this.navigationEl = new Navigation();
+  }
+
+  handleCreateCard(newCard) {
+    model.addCard(newCard);
+    cardPageEl.render();
   }
 }
