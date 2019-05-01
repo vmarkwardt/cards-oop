@@ -8,15 +8,15 @@ export class CreatePage {
       target
     });
 
-    renderForm(onSubmit);
+    this.renderForm(onSubmit);
   }
 
-  renderForm() {
+  renderForm(onSubmit) {
     this.formEl = createEl({
       type: 'form',
       className: 'form__create-card',
       target: this.el,
-      innerHTML: get('form--template').innerHTML
+      innerHTML: getEl('.form--template').innerHTML
     });
 
     this.formEl.addEventListener('submit', onSubmit);
