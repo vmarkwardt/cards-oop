@@ -2,15 +2,15 @@ import { createEl } from './utils';
 import { Card } from './Card';
 
 export class CardPage {
-  constructor(target) {
-    this.cardList = [
-      { title: 'test', content: 'dies ist ein test', isBookmarked: false }
-    ];
+  constructor(target, cardList) {
+    this.cardList = cardList;
+
     this.el = createEl({
       className: 'main__content content-card',
       type: 'section',
       target: target
     });
+
     this.render();
   }
 
