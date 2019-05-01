@@ -2,14 +2,43 @@ import { createEl } from './utils';
 
 export class Header {
   constructor(target) {
-    this.innerHTML = '<h1 class="header-title fontweight">Home</h1>';
-
     this.el = createEl({
       className: 'header-heading',
-      type: 'h1',
+      type: 'header',
       target: target,
-      innerHTML: this.innerHTML,
       position: 'afterbegin'
     });
+
+    this.heading = createEl({
+      className: 'header-title',
+      type: 'h1',
+      target: this.el,
+      innerHTML: 'home'
+    });
+  }
+  update(activePage) {
+    let text;
+    switch (activePage) {
+      case 'page-card-list':
+        text = 'list of cards';
+        break;
+
+      case 'page-create':
+        text = 'create a new card';
+        break;
+
+      case 'page-profile':
+        text = 'your profile';
+        break;
+
+      case 'page-settings':
+        text = 'settings';
+        break;
+
+      default:
+        text = '';
+        break;
+    }
+    this.heading.innerHTML = text;
   }
 }

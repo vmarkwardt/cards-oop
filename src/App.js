@@ -32,7 +32,7 @@ export class App {
 
   handleNavigation(event, activePage) {
     this.activePage = activePage; //ex 'page-create'
-
+    this.headerEl.update(activePage);
     this.showPage(activePage);
     this.navigationEl.update(activePage);
   }
