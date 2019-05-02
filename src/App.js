@@ -23,7 +23,7 @@ export class App {
     this.cardPageEl = new CardPage(this.el, this.cardList);
     this.createPage = new CreatePage(this.el, this.handleCreateCard.bind(this));
     this.profilePage = new ProfilePage(this.el);
-    this.settingsPage = new SettingsPage(this.el);
+    this.settingsPage = new SettingsPage(this.el, this.handleDarkmode);
     this.navigationEl = new Navigation(this.handleNavigation.bind(this));
   }
 
@@ -44,5 +44,13 @@ export class App {
       pageEl.classList.add('hidden')
     );
     getEl(`.${activePage}`).classList.remove('hidden');
+  }
+
+  handleDarkmode(isDark) {
+    if (isDark) {
+      document.body.classList.add('darkmode');
+    } else {
+      document.body.classList.remove('darkmode');
+    }
   }
 }

@@ -1,7 +1,7 @@
 import { createEl, getEl } from './utils';
 
 export class SettingsPage {
-  constructor(target) {
+  constructor(target, onDarkmodeChange) {
     this.el = createEl({
       className: 'main__content page-settings hidden',
       type: 'section',
@@ -41,6 +41,18 @@ export class SettingsPage {
               <label class="setting__option-label custom-checkbox-label" for="setting__option-3"></label>
           </section>
         </div>`
+    });
+
+    this.darkmodeOffEl = getEl('#darkmode-off');
+    this.darkmodeOnEl = getEl('#darkmode-on');
+    //this.optionEl = getEl('.');
+    //console.log('option name ', this.optionEL, this.darkmodeEl);
+
+    this.darkmodeOffEl.addEventListener('click', () => {
+      onDarkmodeChange(false);
+    });
+    this.darkmodeOnEl.addEventListener('click', () => {
+      onDarkmodeChange(true);
     });
   }
 }
